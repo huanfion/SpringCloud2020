@@ -9,9 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-provider-pay</artifactId>
-    <packaging>pom</packaging>
-
+    <artifactId>cloud-provider-pay18002</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.atguigu</groupId>
@@ -51,11 +49,12 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-<!--Eureka 注册客户端-->
+        <!--Eureka 注册客户端-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
     </dependencies>
+
 
 </project>
