@@ -13,6 +13,10 @@
     <module>cloud-api-common</module>
     <module>cloud-eureka-server</module>
       <module>cloud-provider-pay18002</module>
+      <module>cloud-provider-pay18004</module>
+      <module>cloud-consumerzk-order</module>
+      <module>cloud-providerconsul-pay18006</module>
+      <module>cloud-consumerconsul-order</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -97,7 +101,6 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>1.3.5.RELEASE</version>
         <configuration>
           <fork>true</fork>
           <addResources>true</addResources>

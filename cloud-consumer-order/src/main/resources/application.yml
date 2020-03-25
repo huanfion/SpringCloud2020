@@ -1,5 +1,5 @@
 server:
-  port: 18002
+  port: 19001
 spring:
   application:
     name: cloud-consumer-order

@@ -1,0 +1,8 @@
+server:
+  port: 19002
+spring:
+  application:
+    name: cloud-consumerzk-order
+  cloud:
+    zookeeper:
+      connect-string: 192.168.50.62:2181
