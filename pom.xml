@@ -17,6 +17,9 @@
       <module>cloud-consumerzk-order</module>
       <module>cloud-providerconsul-pay18006</module>
       <module>cloud-consumerconsul-order</module>
+      <module>cloud-consumer-feign-order</module>
+      <module>cloud-provider-hystrix-pay-18001</module>
+      <module>cloud-consumer-feign-hystrix-order</module>
   </modules>
   <packaging>pom</packaging>
 

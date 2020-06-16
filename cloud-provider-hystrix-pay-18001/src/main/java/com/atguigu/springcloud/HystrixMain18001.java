@@ -1,21 +1,20 @@
 package com.atguigu.springcloud;
 
-import com.atguige.myrule.MySelfRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
 
 /**
  * @author huanfion
  * @version 1.0
- * @date 2020/3/12 21:59
+ * @date 2020/3/27 12:13
  */
 @SpringBootApplication
 @EnableEurekaClient
-//@RibbonClient(name ="CLOUD-PAY-SERVICE",configuration = MySelfRule.class)
-public class OrderMain {
+@EnableCircuitBreaker
+public class HystrixMain18001 {
     public static void main(String[] args) {
-        SpringApplication.run(OrderMain.class,args);
+        SpringApplication.run(HystrixMain18001.class, args);
     }
 }
