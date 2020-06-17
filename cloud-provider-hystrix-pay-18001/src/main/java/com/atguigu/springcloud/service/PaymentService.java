@@ -17,8 +17,9 @@ public class PaymentService {
         return "线程"+Thread.currentThread().getName()+"paymentInfo_OK 正常运行,id"+id;
     }
     @HystrixCommand(fallbackMethod = "paymentInfo_timeoutHandle",commandProperties = {
-            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "3000")})
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "6000")})
     public String paymentInfo_TimeOut(Integer id){
+//        int age=10/0;
         int timenumber=5;
         try {
             TimeUnit.SECONDS.sleep(timenumber);
