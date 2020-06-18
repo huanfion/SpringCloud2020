@@ -20,6 +20,8 @@
       <module>cloud-consumer-feign-order</module>
       <module>cloud-provider-hystrix-pay-18001</module>
       <module>cloud-consumer-feign-hystrix-order</module>
+      <module>cloud-gateway-gateway9527</module>
+    <module>cloud-config-center3344</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -33,7 +35,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.complier.source>1.8</maven.complier.source>
     <maven.complier.target>1.8</maven.complier.target>
-    <junit.version>2.14</junit.version>
+    <junit.version>4.12</junit.version>
     <log4j.version>1.2.17</log4j.version>
     <mysql.version>8.0.17</mysql.version>
     <druid.version>1.1.10</druid.version>

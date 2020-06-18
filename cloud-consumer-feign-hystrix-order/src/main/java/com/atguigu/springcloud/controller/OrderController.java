@@ -1,6 +1,7 @@
 package com.atguigu.springcloud.controller;
 
 import com.atguigu.springcloud.service.PaymentHystrixService;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/order")
 @Slf4j
+@DefaultProperties(defaultFallback = "paymentInfo_Global_FallbakcMethod")
 public class OrderController {
     @Resource
     private PaymentHystrixService paymentHystrixService;
@@ -30,9 +32,10 @@ public class OrderController {
     }
 
     @GetMapping("/hystrix/timeout/{id}")
-    @HystrixCommand(fallbackMethod = "paymentInfo_timeoutHandle",commandProperties = {
-            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "3000")
-    })
+//    @HystrixCommand(fallbackMethod = "paymentInfo_timeoutHandle",commandProperties = {
+//            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "3000")
+//    })
+    @HystrixCommand
     public String getPaymentTimeout(@PathVariable("id") Integer id) {
         return paymentHystrixService.paymentInfo_TimeOut(id);
     }
@@ -40,4 +43,7 @@ public class OrderController {
         return  "消费者端：线程"+Thread.currentThread().getName()+"调用服务降级方法";
     }
 
+    public String paymentInfo_Global_FallbakcMethod(){
+        return "消费者端：全局服务降级方法";
+    }
 }
