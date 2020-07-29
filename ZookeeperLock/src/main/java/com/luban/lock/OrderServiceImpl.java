@@ -11,24 +11,25 @@ public class OrderServiceImpl implements Runnable {
     //倒记数器
     private static CountDownLatch cdl = new CountDownLatch(NUM);
 //    private static Lock lock = new ReentrantLock();
-    private static ZKImproveLock lock=new ZKImproveLock();
+    private static ZookeeperDistributeLock lock=new ZookeeperDistributeLock();
     @Override
     public void run() {
-        try {
-            //等待线程初始化
-            cdl.await();
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
+//        try {
+//            //等待线程初始化
+//            cdl.await();
+//        } catch (InterruptedException ex) {
+//            ex.printStackTrace();
+//        }
         getOrderCode();
     }
 
     private void getOrderCode() {
-        lock.lock();
         try {
+            lock.lock();
             String orderCode = orderCodeGenerator.getOrderCode();
             System.out.println(Thread.currentThread().getName() + "code:" + orderCode);
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             lock.unlock();
         }
@@ -37,7 +38,7 @@ public class OrderServiceImpl implements Runnable {
     public static void main(String[] args) {
         for (int i = 0; i < NUM; i++) {
             new Thread(new OrderServiceImpl()).start();
-            cdl.countDown();
+            //cdl.countDown();
         }
     }
 }
