@@ -21,6 +21,7 @@
         <module>cloud-provider-hystrix-pay-18001</module>
         <module>cloud-consumer-feign-hystrix-order</module>
         <module>ZookeeperLock</module>
+        <module>Spring-Security</module>
     </modules>
     <packaging>pom</packaging>
 
